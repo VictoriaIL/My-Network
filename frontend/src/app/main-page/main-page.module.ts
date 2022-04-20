@@ -6,10 +6,10 @@ import {RouterModule, Routes} from "@angular/router";
 
 export const ROUTES: Routes = [
   {
-    path: 'overview', component: OverviewComponent
+    path: '', component: OverviewComponent
   },
   {
-    path: 'overview/edit', component: EditComponent
+    path: 'edit', component: EditComponent
   }
 ]
 
