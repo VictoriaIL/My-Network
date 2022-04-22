@@ -13,10 +13,10 @@
     </mat-button-toggle>
   </mat-button-toggle-group>
 
-  <div class="overview__cards-wrapper" #cardsWrapper>
+  <div class="overview__cards-wrapper"  [ngClass]="{'grid': !trigger}">
     <mat-card *ngFor="let book of books">
-      <div class="overview__book-info-wrapper" #bookInfoWrapper>
-        <div>
+      <div class="overview__book-info-wrapper" [ngClass]="{'book-info-grid': trigger}">
+        <div class="overview__book-info-text">
           <mat-card-title>{{book.name}}</mat-card-title>
           <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
           <mat-card-subtitle>{{book.about}}</mat-card-subtitle>

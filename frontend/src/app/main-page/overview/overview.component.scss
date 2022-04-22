@@ -8,10 +8,16 @@
   }
 
   &__book-info-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
   }
+
+  &__book-info-text {
+  }
+}
+
+.book-info-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
 .grid {
@@ -23,7 +29,9 @@
 
 mat-card {
   margin: 10px 0;
+  max-height: 550px;
 }
+
 
 img {
   width: 100%;
@@ -37,4 +45,12 @@ img {
 button {
   margin: 10px;
   //width: 100%;
+}
+
+mat-card-subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
 }

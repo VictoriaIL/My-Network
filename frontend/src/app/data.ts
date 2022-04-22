@@ -28,6 +28,24 @@ export const data = [
     "author": "Rena Chen",
     "name": "CALLFLEX",
     "about": "Commodo occaecat enim ad ullamco aliquip laborum sit velit irure id sunt. In magna officia laborum mollit dolore enim velit et sint sunt qui irure. Eiusmod consectetur eiusmod veniam quis adipisicing.\r\n"
+  },
+  {
+    "picture": "https://main-cdn.sbermegamarket.ru/big2/hlr-system/1635825/100023080658b0.jpg",
+    "author": "Hogan Savage",
+    "name": "RECRITUBE",
+    "about": "Ipsum fugiat id irure eiusmod nostrud pariatur laborum est sint ad ut culpa tempor. Minim ex dolore adipisicing dolor sint consequat pariatur. Commodo nisi eu velit adipisicing eiusmod id velit. Cupidatat proident dolor incididunt Lorem culpa eu est commodo et consectetur enim. Duis et non ipsum mollit mollit est irure sunt cillum sunt eiusmod mollit elit. Veniam deserunt velit adipisicing excepteur duis. Aliquip dolor pariatur sint laborum aliqua incididunt esse commodo esse amet amet aute proident.\r\n"
+  },
+  {
+    "picture": "https://cmp24.ru/images/prodacts/sourse/61746/61746270_lyubovnik-ledi-chatterli-eksmo.jpg",
+    "author": "Maritza Burnett",
+    "name": "ARTWORLDS",
+    "about": "Labore excepteur aliquip adipisicing ex minim quis officia elit. Eu non minim exercitation proident pariatur do do officia culpa amet labore commodo esse. Enim enim incididunt laborum irure quis do laborum anim tempor adipisicing. Cupidatat consequat enim ut id irure quis in est ipsum commodo.\r\n"
+  },
+  {
+    "picture": "https://cdn.book24.ru/v2/430000000000171768/COVER/cover3d1__w600__w340.jpg",
+    "author": "Rena Chen",
+    "name": "CALLFLEX",
+    "about": "Commodo occaecat enim ad ullamco aliquip laborum sit velit irure id sunt. In magna officia laborum mollit dolore enim velit et sint sunt qui irure. Eiusmod consectetur eiusmod veniam quis adipisicing.\r\n"
   }
 ]
 
