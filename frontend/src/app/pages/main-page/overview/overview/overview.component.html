@@ -1,5 +1,5 @@
 <div class="overview__wrapper">
-  <button mat-raised-button>
+  <button mat-raised-button (click)="openDialog()">
     <mat-icon>note_add</mat-icon>
     Add a new book
   </button>
@@ -24,6 +24,7 @@
         <img mat-card-image src="{{book.picture}}" alt="Photo">
       </div>
       <mat-card-actions align="end">
+        <button mat-button (click)="deleteBook(book['_id'])" >Delete</button>
         <button mat-button>View</button>
         <button mat-button>Edit</button>
       </mat-card-actions>
