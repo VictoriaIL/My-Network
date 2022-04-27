@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {map, Observable, tap} from "rxjs";
 
 @Component({
   selector: 'app-start-page',
@@ -9,6 +10,7 @@ import {HttpClient} from "@angular/common/http";
 export class StartPageComponent implements OnInit {
 
   ngOnInit(): void {
+    this.getUsers();
   }
 
   user: any;
@@ -19,6 +21,26 @@ export class StartPageComponent implements OnInit {
   showUsers() {
 
     this.http.get('http://localhost:5000/api/users').subscribe((data: any) => this.user = JSON.stringify(data));
+  }
+
+
+  people: any;
+
+
+
+  getPeoples(): Observable<any> {
+    return this.http.get('https://swapi.dev/api/people').pipe(
+      tap((x:any) => console.log(x.results))
+    );
+  }
+
+
+  getUsers(): void {
+   this.getPeoples().subscribe((res) => {
+       this.people = res.results;
+     console.log( this.people);
+
+   });
   }
 
 }
