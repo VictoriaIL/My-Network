@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {OverviewComponent} from './overview/overview.component';
+import {OverviewComponent} from './overview/overview/overview.component';
 import {EditComponent} from './edit/edit.component';
 import {RouterModule, Routes} from "@angular/router";
 import {SharedModule} from "../shared/shared.module";
+import { NewBookComponent } from './overview/new-book/new-book.component';
 
 export const ROUTES: Routes = [
   {
@@ -17,7 +18,8 @@ export const ROUTES: Routes = [
 @NgModule({
   declarations: [
     OverviewComponent,
-    EditComponent
+    EditComponent,
+    NewBookComponent
   ],
   imports: [
     CommonModule,
