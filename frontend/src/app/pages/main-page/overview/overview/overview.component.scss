@@ -10,14 +10,28 @@
   &__book-info-wrapper {
   }
 
-  &__book-info-text {
+  &__loader-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  &__filter-panel {
+  display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__card {
+
   }
 }
+
 
 .book-info-grid {
   display: flex;
   justify-content: center;
-  gap: 30px;
 }
 
 .grid {

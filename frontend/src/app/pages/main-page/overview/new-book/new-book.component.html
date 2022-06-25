@@ -5,8 +5,8 @@
       <p class="popup__description">Enter book parameters</p>
       <mat-dialog-content [formGroup]="formGroup">
         <mat-form-field appearance="outline" class="popup__input">
-          <input matInput placeholder="Name" formControlName="name">
-          <mat-error *ngIf="formGroup.controls['name'].invalid">
+          <input matInput placeholder="Name" formControlName="title">
+          <mat-error *ngIf="formGroup.controls['title'].invalid">
             Required field
           </mat-error>
           <mat-hint>Book title</mat-hint>
@@ -32,6 +32,8 @@
           </mat-error>
           <mat-hint>Picture link</mat-hint>
         </mat-form-field>
+        <input type="radio" formControlName="favorite">
+        <mat-hint>Picture link</mat-hint>
       </mat-dialog-content>
       <mat-dialog-actions>
         <button type="button" mat-stroked-button (click)="addNewBook()" class="btn-full-width">Add</button>

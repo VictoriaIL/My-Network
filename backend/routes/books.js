@@ -6,7 +6,9 @@ const router = express.Router();
 router.get('', controller.getBooks);
 router.post('', controller.postBook);
 router.delete('/:id', controller.removeBook);
-router.patch('/:id', controller.updateBook);
+router.patch('/toggleLike/:id', controller.changeFavoriteFieldOfBookById);
+router.get('/favorite', controller.getFavoriteBooksList);
+router.put('/:id', controller.updateBook);
 
 
 module.exports = router;

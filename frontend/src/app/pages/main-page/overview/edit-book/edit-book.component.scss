@@ -1,0 +1,40 @@
+.popup {
+  height: 100%;
+
+  &__wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  &__form {
+    //width: 50%;
+  }
+
+  &__input {
+    width: 100%;
+  }
+
+  &__textarea {
+    width: 100%;
+
+    textarea {
+      height: 90px;
+    }
+  }
+}
+
+.btn-full-width {
+  width: 100%;
+}
+
+@media (max-width: 860px) {
+  .popup{
+    &__wrapper {
+      display: block;
+    }
+    &__form {
+      width: 100%;
+    }
+  }
+}

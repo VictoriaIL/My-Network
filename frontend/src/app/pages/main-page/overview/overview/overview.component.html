@@ -1,9 +1,9 @@
 <div class="overview__wrapper">
-  <button mat-raised-button (click)="openDialog()">
+  <button mat-raised-button (click)="addNewBook()">
     <mat-icon>note_add</mat-icon>
     Add a new book
   </button>
-
+<div class="overview__filter-panel">
   <mat-button-toggle-group #group="matButtonToggleGroup" (change)="checkScheme(group.value)">
     <mat-button-toggle value="grid" aria-label="Text align left">
       <mat-icon>grid_on</mat-icon>
@@ -13,21 +13,21 @@
     </mat-button-toggle>
   </mat-button-toggle-group>
 
-  <div class="overview__cards-wrapper"  [ngClass]="{'grid': !trigger}">
-    <mat-card *ngFor="let book of books">
-      <div class="overview__book-info-wrapper" [ngClass]="{'book-info-grid': trigger}">
-        <div class="overview__book-info-text">
-          <mat-card-title>{{book.name}}</mat-card-title>
-          <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
-          <mat-card-subtitle>{{book.about}}</mat-card-subtitle>
-        </div>
-        <img mat-card-image src="{{book.picture}}" alt="Photo">
-      </div>
-      <mat-card-actions align="end">
-        <button mat-button (click)="deleteBook(book['_id'])" >Delete</button>
-        <button mat-button>View</button>
-        <button mat-button>Edit</button>
-      </mat-card-actions>
+  <mat-button-toggle value="favorite" aria-label="Text align center" (click)="favoriteFilter()">
+    <mat-icon>favorite</mat-icon>
+  </mat-button-toggle>
+</div>
+
+
+  <div class="overview__cards-wrapper" [ngClass]="{'grid': !trigger}">
+    <mat-spinner *ngIf="!(books&&books.length)"
+                 class="overview__loader-wrapper"></mat-spinner>
+
+    <mat-card *ngFor="let book of books" class="overview__card">
+      <app-book [trigger]="trigger"
+                [book]="book"
+                (onDeleteBook)="deleteBook($event)"
+                (onEditBook)="editBook($event)"></app-book>
     </mat-card>
   </div>
 </div>

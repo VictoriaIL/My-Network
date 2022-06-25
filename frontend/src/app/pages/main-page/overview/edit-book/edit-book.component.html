@@ -1,0 +1,43 @@
+<div class="popup">
+  <div class="popup__wrapper">
+    <div class="popup__form">
+      <h2 mat-dialog-title class="popup__title">Edit book</h2>
+      <p class="popup__description">Enter book parameters</p>
+      <mat-dialog-content [formGroup]="formGroup">
+        <mat-form-field appearance="outline" class="popup__input">
+          <input matInput placeholder="Name" formControlName="title">
+          <mat-error *ngIf="formGroup.controls['title'].invalid">
+            Required field
+          </mat-error>
+          <mat-hint>Book title</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="popup__input">
+          <input matInput placeholder="Author" formControlName="author">
+          <mat-error *ngIf="formGroup.controls['author'].invalid">
+            Required field
+          </mat-error>
+          <mat-hint>Enter author</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="popup__input">
+          <input matInput placeholder="About" formControlName="about">
+          <mat-error *ngIf="formGroup.controls['about'].invalid">
+            Required field
+          </mat-error>
+          <mat-hint>Description</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="popup__input">
+          <input matInput placeholder="Picture" formControlName="picture">
+          <mat-error *ngIf="formGroup.controls['picture'].invalid">
+            Required field
+          </mat-error>
+          <mat-hint>Picture link</mat-hint>
+        </mat-form-field>
+          <input type="radio"  placeholder="Picture" formControlName="favorite">
+          <mat-hint>Picture link</mat-hint>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button type="button" mat-stroked-button (click)="editBook()" [disabled]="formGroup.invalid" class="btn-full-width">Add</button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+</div>

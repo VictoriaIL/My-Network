@@ -48,7 +48,9 @@ const commonModules = [
   MatButtonToggleModule,
   MatSlideToggleModule,
   MatOptionModule,
+  MatInputModule,
   MatSelectModule,
+  MatProgressSpinnerModule
 ]
 
 @NgModule({

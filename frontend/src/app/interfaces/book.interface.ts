@@ -1,7 +1,8 @@
 export interface BookInterface {
-  _id: string,
-  name: string,
+  book_id: string,
+  title: string,
   author: string,
   about: string,
+  favorite: boolean,
   picture: string;
 }
