@@ -3,11 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', loadChildren: () => import ('./start-page/start-page.module')
+    path: '', loadChildren: () => import ('./pages/start-page/start-page.module')
       .then(module => module.StartPageModule), pathMatch: 'full'
   },
   {
-    path: 'overview', loadChildren: () => import ('./main-page/main-page.module')
+    path: 'overview', loadChildren: () => import ('./pages/main-page/main-page.module')
+      .then(module => module.MainPageModule)
+  },
+  {
+    path: 'view', loadChildren: () => import ('./pages/main-page/main-page.module')
       .then(module => module.MainPageModule)
   },
 ];

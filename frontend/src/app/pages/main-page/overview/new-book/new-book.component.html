@@ -1,0 +1,60 @@
+<div class="popup">
+  <div class="popup__wrapper">
+    <div class="popup__form">
+      <h2 mat-dialog-title class="popup__title">Добавить новую книгу</h2>
+      <p class="popup__description">Введите параметры</p>
+      <mat-dialog-content [formGroup]="formGroup">
+        <mat-form-field appearance="outline" class="popup__input">
+          <input matInput placeholder="Название" formControlName="title">
+          <mat-error *ngIf="formGroup.controls['title'].invalid">
+            Обязательное поле
+          </mat-error>
+          <mat-hint>Название</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="popup__input">
+          <input matInput placeholder="Автор" formControlName="author">
+          <mat-error *ngIf="formGroup.controls['author'].invalid">
+            Обязательное поле
+          </mat-error>
+          <mat-hint>Автор</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="popup__input">
+          <input matInput placeholder="Описание" formControlName="about">
+          <mat-error *ngIf="formGroup.controls['about'].invalid">
+            Обязательное поле
+          </mat-error>
+          <mat-hint>Описание</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="popup__input">
+          <input matInput placeholder="Сcылка на обложку" formControlName="picture">
+          <mat-error *ngIf="formGroup.controls['picture'].invalid">
+            Обязательное поле
+          </mat-error>
+          <mat-hint>Сcылка на обложку</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="popup__input">
+          <input matInput placeholder="Сcылка на книгу в pdf" formControlName="booklink">
+          <mat-error *ngIf="formGroup.controls['booklink'].invalid">
+            Обязательное поле
+          </mat-error>
+          <mat-hint>Сcылка на книгу в pdf</mat-hint>
+        </mat-form-field>
+        <div>
+          <input id="favorite" type="checkbox" formControlName="favorite">
+          <label for="favorite">Избранное</label>
+        </div>
+          <div>
+            <input type="checkbox" id="read" formControlName="read">
+            <label for="read">Прочитана</label>
+          </div>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button type="button" mat-stroked-button (click)="addNewBook()" class="btn-full-width">Добавить</button>
+      </mat-dialog-actions>
+    </div>
+    <img src="https://catherineasquithgallery.com/uploads/posts/2021-02/1614532802_52-p-kniga-na-belom-fone-74.png"
+         alt="Pisture" class="picture">
+  </div>
+</div>
+
+

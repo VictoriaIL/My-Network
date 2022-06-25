@@ -1,6 +1,0 @@
-@use 'src/styles.scss';
-@import '~@angular/material/theming';
-
-::ng-deep mat-toolbar{
-  background-color: #3f51b5 !important;
-}

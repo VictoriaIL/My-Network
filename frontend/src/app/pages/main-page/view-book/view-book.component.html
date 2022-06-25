@@ -1,0 +1,20 @@
+<mat-card>
+  <button mat-raised-button (click)="changeRoute()">На главную</button>
+<div class="view__book-info-wrapper">
+  <div class="view__book-info-text-wrapper">
+    <div class="view__book-info-text">
+      <mat-card-title><b>Название:</b> {{book?.title}}</mat-card-title>
+      <mat-card-title><b>Автор:</b> {{book?.author}}</mat-card-title>
+      <mat-card-title><b>Прочитана:</b> {{book?.read ? 'Да' : 'Hет'}}</mat-card-title>
+      <mat-card-title><b>Избранное:</b> {{book?.favorite ? 'Да' : 'Hет'}}</mat-card-title>
+    </div>
+    <img  src="{{book?.picture}}" #pic (error)="changePic()" alt="Picture" class="picture">
+  </div>
+  <mat-card-title class="description"><b>Описание:</b> {{book?.about}}</mat-card-title>
+  <iframe class="iframe"
+          *ngIf="checkBookLink(book?.booklink)"
+          [src]="book && book?.booklink | safe:'resourceUrl' ">
+  </iframe>
+</div>
+
+</mat-card>
