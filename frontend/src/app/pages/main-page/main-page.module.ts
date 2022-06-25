@@ -7,6 +7,7 @@ import {SharedModule} from "../shared/shared.module";
 import { NewBookComponent } from './overview/new-book/new-book.component';
 import { EditBookComponent } from './overview/edit-book/edit-book.component';
 import { BookComponent } from './overview/book/book.component';
+import { ViewBookComponent } from './view-book/view-book.component';
 
 export const ROUTES: Routes = [
   {
@@ -14,6 +15,9 @@ export const ROUTES: Routes = [
   },
   {
     path: 'edit', component: EditComponent
+  },
+  {
+    path: 'view', component: ViewBookComponent
   }
 ]
 
@@ -23,7 +27,8 @@ export const ROUTES: Routes = [
     EditComponent,
     NewBookComponent,
     EditBookComponent,
-    BookComponent
+    BookComponent,
+    ViewBookComponent
   ],
   imports: [
     CommonModule,

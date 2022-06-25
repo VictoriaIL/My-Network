@@ -1,48 +1,70 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {BookInterface} from "../../../../interfaces/book.interface";
 import {Subscription} from "rxjs";
 import {BooksService} from "../books.service";
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['./book.component.scss']
+    selector: 'app-book',
+    templateUrl: './book.component.html',
+    styleUrls: ['./book.component.scss']
 })
 
 
 export class BookComponent implements OnInit, OnDestroy {
 
-  @Input() book: BookInterface | undefined;
-  @Input() trigger: boolean | undefined;
+    @Input() book: BookInterface | undefined;
+    @Input() trigger: boolean | undefined;
 
-  @Output() onDeleteBook = new EventEmitter<string>();
-  @Output() onEditBook = new EventEmitter<BookInterface>();
+    @Output() onDeleteBook = new EventEmitter<string>();
+    @Output() onEditBook = new EventEmitter<BookInterface>();
 
-  private subscriptions = new Subscription();
+    @ViewChild('pic') pic: ElementRef | undefined;
 
-  constructor(private bookService: BooksService) {
-  }
+    public pictureSrc = 'https://phonoteka.org/uploads/posts/2021-04/1617816293_31-p-kniga-na-prozrachnom-fone-37.png';
+    private subscriptions = new Subscription();
 
-  ngOnInit(): void {
-  }
+    constructor(private bookService: BooksService,
+                private readonly router: Router) {
+    }
 
-  onEditBookClick(book?: BookInterface) {
-    this.onEditBook.emit(book);
-  }
+    ngOnInit(): void {
+    }
 
-  toggleFavoriteField() {
-    this.subscriptions.add(
-      this.bookService.toggleFavoriteFieldOfBookById(this.book!.book_id, !this.book!.favorite)
-        .subscribe((response) => {
-          this.book = response;
-        }))
-  }
+    changePic() {
+        // @ts-ignore
+        this.pic?.nativeElement?.src = this.pictureSrc;
+    }
 
-  onDeleteBookClick(bookId?: string): void {
-    this.onDeleteBook.emit(bookId);
-  }
+    onEditBookClick(book?: BookInterface) {
+        this.onEditBook.emit(book);
+    }
 
-  ngOnDestroy() {
-    this.subscriptions.unsubscribe();
-  }
+    toggleFavoriteField() {
+        this.subscriptions.add(
+            this.bookService.toggleFavoriteFieldOfBookById(this.book!.book_id, !this.book!.favorite)
+                .subscribe((response) => {
+                    this.book = response;
+                }))
+    }
+
+    toggleReadField() {
+        this.subscriptions.add(
+            this.bookService.toggleReadFieldOfBookById(this.book!.book_id, !this.book!.read)
+                .subscribe((response) => {
+                    this.book = response;
+                }))
+    }
+
+    onDeleteBookClick(bookId?: string): void {
+        this.onDeleteBook.emit(bookId);
+    }
+
+    onViewBookClick(bookId?: string): void {
+        this.router.navigate(['overview/view'], {queryParams: {id: bookId}})
+    }
+
+    ngOnDestroy() {
+        this.subscriptions.unsubscribe();
+    }
 }

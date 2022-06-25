@@ -27,8 +27,9 @@ export class EditBookComponent implements OnInit {
       title: [this.book.title, [Validators.required]],
       author: [this.book.author, [Validators.required]],
       about: [this.book.about, [Validators.required]],
-      picture: [this.book.picture, [Validators.required]],
+      picture: [this.book.picture],
       favorite: [this.book.favorite],
+      read: [this.book.favorite]
     });
   }
 
@@ -40,19 +41,22 @@ export class EditBookComponent implements OnInit {
       'book_id': this.book.book_id,
       "title": this.formGroup.value.title,
       "favorite": this.formGroup.value.favorite || false,
+      "read": this.formGroup.value.read || false,
       "author": this.formGroup.value.author,
       "about": this.formGroup.value.about,
       "picture": this.formGroup.value.picture
     }
-    console.log(book)
     this.subscription.add(
       this.booksService.updateBook(book)
         .subscribe(
           (updatedBook: BookInterface) => {
+            console.log(book, 'update updatebookbookbook')
             this.dialogRef.close(updatedBook);
           }
         )
     )
   }
-
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

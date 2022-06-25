@@ -32,8 +32,10 @@
           </mat-error>
           <mat-hint>Picture link</mat-hint>
         </mat-form-field>
-          <input type="radio"  placeholder="Picture" formControlName="favorite">
+          <input type="radio" formControlName="favorite">
           <mat-hint>Picture link</mat-hint>
+        <input type="radio" formControlName="read">
+        <mat-hint>Picture link</mat-hint>
       </mat-dialog-content>
       <mat-dialog-actions>
         <button type="button" mat-stroked-button (click)="editBook()" [disabled]="formGroup.invalid" class="btn-full-width">Add</button>

@@ -16,6 +16,9 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   private subscriptions = new Subscription();
   private isFavoriteModeActive = false;
+  private isReadModeActive = false;
+  public pictureSrc = 'https://phonoteka.org/uploads/posts/2021-04/1617816293_31-p-kniga-na-prozrachnom-fone-37.png';
+
 
   public books: BookInterface[] | undefined;
   @Output() trigger = true;
@@ -36,13 +39,13 @@ export class OverviewComponent implements OnInit, OnDestroy {
         .subscribe((books) => {
           this.books = books;
         }));
-    console.log(this.books)
   }
 
   deleteBook(id: string): void {
     this.subscriptions.add(
       this.booksService.deleteBook(id)
-        .subscribe(_ => {
+        .subscribe((response) => {
+     console.log(response)
             this.books = this.books?.filter(el => id != el.book_id)
           }
         )
@@ -50,6 +53,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
   }
 
   addNewBook(): void {
+
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.autoFocus = true;
@@ -58,11 +62,14 @@ export class OverviewComponent implements OnInit, OnDestroy {
     const dialogRef = this.dialog.open(NewBookComponent, dialogConfig);
 
     this.subscriptions.add(
-      dialogRef.afterClosed().subscribe(book => {
-
-        if (book) {
+      dialogRef.afterClosed().subscribe((book: BookInterface) => {
+        console.log(book)
+        // if (book) {
+          console.log('апушилось');
           this.books?.push(book);
-        }
+          console.log(this.books)
+        return book;
+        // }
       })
     )
   }
@@ -93,6 +100,29 @@ export class OverviewComponent implements OnInit, OnDestroy {
     if (this.isFavoriteModeActive) {
       this.subscriptions.add(
         this.booksService.getFavoriteBooksOnly()
+          .subscribe((response) => {
+            this.books = response;
+          })
+      )
+      return;
+    }
+
+    this.subscriptions.add(
+      this.booksService.getBooks()
+        .subscribe((response) => {
+          this.books = response;
+        })
+    )
+
+  }
+
+  readFilter() {
+    this.books = [];
+    this.isReadModeActive = !this.isReadModeActive;
+
+    if (this.isReadModeActive) {
+      this.subscriptions.add(
+        this.booksService.getReadBooksOnly()
           .subscribe((response) => {
             this.books = response;
           })

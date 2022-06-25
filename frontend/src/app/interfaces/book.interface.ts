@@ -4,5 +4,6 @@ export interface BookInterface {
   author: string,
   about: string,
   favorite: boolean,
+  read: boolean,
   picture: string;
 }

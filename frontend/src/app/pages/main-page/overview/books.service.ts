@@ -21,9 +21,19 @@ export class BooksService {
       .get<BookInterface[]>(this.baseURl);
   }
 
+  getBookById(id: string): Observable<BookInterface> {
+    return this.http
+      .get<BookInterface>(`${this.baseURl}/id/${id}`);
+  }
+
   getFavoriteBooksOnly(): Observable<BookInterface[]> {
     return this.http
       .get<BookInterface[]>(`${this.baseURl}/favorite`);
+  }
+
+  getReadBooksOnly(): Observable<BookInterface[]> {
+    return this.http
+      .get<BookInterface[]>(`${this.baseURl}/read`);
   }
 
   toggleFavoriteFieldOfBookById(id: string, newValue: boolean): Observable<BookInterface> {
@@ -31,13 +41,18 @@ export class BooksService {
       .patch<BookInterface>(`${this.baseURl}/toggleLike/${id}`, {favorite: newValue});
   }
 
+  toggleReadFieldOfBookById(id: string, newValue: boolean): Observable<BookInterface> {
+    return this.http
+      .patch<BookInterface>(`${this.baseURl}/toggleRead/${id}`, {read: newValue});
+  }
+
   deleteBook(id: string): Observable<BookInterface> {
     const url = `${this.baseURl}/${id}`;
     return this.http.delete<BookInterface>(url);
   }
 
-  addBook(book: BookInterface): Observable<BookInterface> {
-    return this.http.post<BookInterface>(this.baseURl, book);
+  addBook(book: any): Observable<BookInterface> {
+    return this.http.post<any>(this.baseURl, book);
   }
 
   updateBook(book: BookInterface): Observable<BookInterface> {

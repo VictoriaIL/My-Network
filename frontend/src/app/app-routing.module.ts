@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'overview', loadChildren: () => import ('./pages/main-page/main-page.module')
       .then(module => module.MainPageModule)
   },
+  {
+    path: 'view', loadChildren: () => import ('./pages/main-page/main-page.module')
+      .then(module => module.MainPageModule)
+  },
 ];
 
 @NgModule({

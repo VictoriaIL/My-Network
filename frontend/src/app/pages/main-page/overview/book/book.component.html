@@ -1,17 +1,21 @@
 <div class="overview__book-info-wrapper" [ngClass]="{'book-info-grid': trigger}">
-  <div class="overview__book-info-text">
-
-    <mat-card-title>{{book?.title}}</mat-card-title>
-    <mat-card-subtitle>{{book?.author}}</mat-card-subtitle>
-    <mat-card-subtitle>{{book?.about}}</mat-card-subtitle>
+  <div class="overview__book-info-text-wrapper">
+    <div class="overview__book-info-text">
+      <mat-card-title>{{book?.title}}</mat-card-title>
+      <mat-card-subtitle>{{book?.author}}</mat-card-subtitle>
+      <mat-card-subtitle>{{book?.about}}</mat-card-subtitle>
+    </div>
+    <img mat-card-image #pic src="{{book?.picture}}" (error)="changePic()" alt="Photo">
   </div>
-  <img mat-card-image src="{{book?.picture}}" alt="Photo">
   <button mat-icon-button [color]="book?.favorite?'warn':'primary'" (click)="toggleFavoriteField()">
     <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button [color]="book?.read?'warn':'primary'" (click)="toggleReadField()">
+    <mat-icon>bookmark</mat-icon>
   </button>
 </div>
 <mat-card-actions align="end">
   <button mat-button (click)="onDeleteBookClick(book?.book_id)">Delete</button>
-  <button mat-button>View</button>
+  <button mat-button (click)="onViewBookClick(book?.book_id)">View</button>
   <button mat-button (click)="onEditBookClick(book)">Edit</button>
 </mat-card-actions>

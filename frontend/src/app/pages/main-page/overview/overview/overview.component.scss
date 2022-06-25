@@ -8,6 +8,7 @@
   }
 
   &__book-info-wrapper {
+
   }
 
   &__loader-wrapper {
@@ -18,7 +19,7 @@
   }
 
   &__filter-panel {
-  display: flex;
+    display: flex;
     width: 100%;
     justify-content: space-between;
   }
@@ -61,6 +62,19 @@ button {
   //width: 100%;
 }
 
+.button-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.card-title {
+  margin: 0 10px;
+}
+
+.mat-raised-button {
+  margin: 20px 0;
+}
+
 mat-card-subtitle {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -68,3 +82,5 @@ mat-card-subtitle {
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
 }
+
+
