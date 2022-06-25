@@ -33,9 +33,9 @@ module.exports.getBookById = async function(req, res) {
 
 module.exports.postBook = async function(req, res) {
 
-  const { title, author, picture, about, favorite, read } = req.body;
+  const { title, author, picture, about, booklink, favorite, read } = req.body;
 
-  pool.query('INSERT INTO book (title, author, picture, about, booklink, favorite, read) VALUES ($1, $2, $3, $4, $5, $6, &7) RETURNING *',
+  pool.query('INSERT INTO book (title, author, picture, about, booklink, favorite, read) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
     [title, author, picture, about, booklink, favorite, read],
     (error, results) => {
       if (error) {
@@ -58,10 +58,10 @@ module.exports.removeBook = async function(req, res) {
 
 module.exports.updateBook = async function(req, res) {
   const id = parseInt(req.params.id);
-  const { title, author, picture, about, favorite, read } = req.body;
+  const { title, author, picture, about, booklink,  favorite, read } = req.body;
 
   pool.query(
-    'UPDATE book SET title = $1, author = $2, picture = $3, about = $4, booklink = &5,  favorite = $6, read = $7 WHERE book_id = $7',
+    'UPDATE book SET title = $1, author = $2, picture = $3, about = $4, booklink = $5,  favorite = $6, read = $7 WHERE book_id = $8',
     [title, author, picture, about, booklink, favorite, read, id],
     (error, results) => {
       if (error) {
