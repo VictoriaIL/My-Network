@@ -6,6 +6,7 @@ import {BooksService} from "../books.service";
 import {BookInterface} from "../../../../interfaces/book.interface";
 import {NewBookComponent} from "../new-book/new-book.component";
 import {EditBookComponent} from "../edit-book/edit-book.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-overview',
@@ -19,13 +20,13 @@ export class OverviewComponent implements OnInit, OnDestroy {
   private isReadModeActive = false;
   public pictureSrc = 'https://phonoteka.org/uploads/posts/2021-04/1617816293_31-p-kniga-na-prozrachnom-fone-37.png';
 
-
   public books: BookInterface[] | undefined;
   @Output() trigger = true;
 
 
   constructor(private booksService: BooksService,
-              private readonly dialog: MatDialog) {
+              private readonly dialog: MatDialog,
+              private readonly router: Router) {
   }
 
   ngOnInit(): void {
@@ -45,11 +46,16 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.booksService.deleteBook(id)
         .subscribe((response) => {
-     console.log(response)
+            console.log(response)
             this.books = this.books?.filter(el => id != el.book_id)
           }
         )
     )
+  }
+
+  changeRoute() {
+    this.router.navigate([''])
+
   }
 
   addNewBook(): void {
@@ -65,9 +71,9 @@ export class OverviewComponent implements OnInit, OnDestroy {
       dialogRef.afterClosed().subscribe((book: BookInterface) => {
         console.log(book)
         // if (book) {
-          console.log('апушилось');
-          this.books?.push(book);
-          console.log(this.books)
+        console.log('апушилось');
+        this.books?.push(book);
+        console.log(this.books)
         return book;
         // }
       })

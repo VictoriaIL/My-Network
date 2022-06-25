@@ -19,6 +19,7 @@ import {HeaderComponent} from "./components/header/header.component";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
+import {SafePipe} from "../../safe.pipe";
 
 
 const commonModules = [

@@ -27,6 +27,7 @@ export class NewBookComponent implements OnInit, OnDestroy {
       title: ['', [Validators.required]],
       author: ['', [Validators.required]],
       about: ['', [Validators.required]],
+      booklink: [''],
       picture: ['', []],
       favorite: [false, []],
       read: [false, []]
@@ -37,19 +38,12 @@ export class NewBookComponent implements OnInit, OnDestroy {
 
     if (this.formGroup?.invalid || !this.formGroup) return;
 
-    // let image = document.getElementById('MyPicture');
-    // image.onerror = function () {
-    //   alert('error loading ' + this.src);
-    //   this.src = 'error.png'; // place your error.png image instead
-    // };
-    //
-    // image.src = 'non-existing.jpg';
-    // https://kartinkin.net/uploads/posts/2022-02/1645775622_4-kartinkin-net-p-knigi-na-prozrachnom-fone-kartinki-4.png
     const book = {
       "title": this.formGroup.value.title,
       "author": this.formGroup.value.author,
       "about": this.formGroup.value.about,
       "picture": this.formGroup.value.picture,
+      "booklink": this.formGroup.value.booklink,
       "favorite": this.formGroup.value.favorite || false,
       "read": this.formGroup.value.read || false
     }

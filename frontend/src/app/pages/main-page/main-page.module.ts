@@ -8,6 +8,8 @@ import { NewBookComponent } from './overview/new-book/new-book.component';
 import { EditBookComponent } from './overview/edit-book/edit-book.component';
 import { BookComponent } from './overview/book/book.component';
 import { ViewBookComponent } from './view-book/view-book.component';
+import {AppModule} from "../../app.module";
+import {SafePipe} from "../../safe.pipe";
 
 export const ROUTES: Routes = [
   {
@@ -28,12 +30,13 @@ export const ROUTES: Routes = [
     NewBookComponent,
     EditBookComponent,
     BookComponent,
-    ViewBookComponent
+    ViewBookComponent,
+    SafePipe
   ],
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(ROUTES)
+    RouterModule.forChild(ROUTES),
   ]
 })
 export class MainPageModule {

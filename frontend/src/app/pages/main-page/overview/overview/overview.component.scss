@@ -47,6 +47,11 @@ mat-card {
   max-height: 550px;
 }
 
+mat-dialog-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 img {
   width: 100%;

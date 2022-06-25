@@ -1,17 +1,19 @@
 <div class="overview__wrapper">
-  <button mat-raised-button (click)="addNewBook()">
-    <mat-icon>note_add</mat-icon>
-    Add a new book
-  </button>
+  <button mat-raised-button (click)="changeRoute()">На стартовую страницу</button>
+
   <div class="overview__filter-panel">
-    <mat-button-toggle-group #group="matButtonToggleGroup" (change)="checkScheme(group.value)">
-      <mat-button-toggle value="grid" aria-label="Text align left">
-        <mat-icon>grid_on</mat-icon>
-      </mat-button-toggle>
-      <mat-button-toggle value="list" aria-label="Text align center">
-        <mat-icon>view_list</mat-icon>
-      </mat-button-toggle>
-    </mat-button-toggle-group>
+    <button mat-raised-button (click)="addNewBook()">
+      <mat-icon>note_add</mat-icon>
+      Добавить новую книгу
+    </button>
+    <!--    <mat-button-toggle-group #group="matButtonToggleGroup" (change)="checkScheme(group.value)">-->
+    <!--      <mat-button-toggle value="grid" aria-label="Text align left">-->
+    <!--        <mat-icon>grid_on</mat-icon>-->
+    <!--      </mat-button-toggle>-->
+    <!--      <mat-button-toggle value="list" aria-label="Text align center">-->
+    <!--        <mat-icon>view_list</mat-icon>-->
+    <!--      </mat-button-toggle>-->
+    <!--    </mat-button-toggle-group>-->
 
     <div class="button-wrapper">
       <mat-button-toggle value="favorite" aria-label="Text align center" (click)="favoriteFilter()">

@@ -3,6 +3,7 @@ export interface BookInterface {
   title: string,
   author: string,
   about: string,
+  booklink: string,
   favorite: boolean,
   read: boolean,
   picture: string;

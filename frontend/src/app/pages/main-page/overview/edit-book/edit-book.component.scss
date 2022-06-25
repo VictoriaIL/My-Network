@@ -5,6 +5,7 @@
     display: flex;
     align-items: stretch;
     justify-content: space-between;
+    gap: 15px;
   }
 
   &__form {
@@ -38,3 +39,12 @@
     }
   }
 }
+
+
+
+label {
+  cursor: pointer;
+}
+
+
+
